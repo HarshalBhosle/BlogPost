@@ -42,7 +42,6 @@ const router = createBrowserRouter([
             path: "/all-posts",
             element: (
                 <AuthLayout authentication>
-                    {" "}
                     <AllPosts />
                 </AuthLayout>
             ),
@@ -69,6 +68,10 @@ const router = createBrowserRouter([
             path: "/post/:slug",
             element: <Post />,
         },
+        {
+            path: "*",
+            element: <div className="text-center mt-10 text-xl">404 - Page Not Found</div>,
+        }
     ],
 },
 ])

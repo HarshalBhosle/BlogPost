@@ -37,17 +37,16 @@ export class AuthService {
     }
 
     async getCurrentUser() {
-        try {
-            return await this.account.get();
-    
-        } catch (error) {
-            if (error.code === 401) {
-                console.warn('User is not logged in.');
-            } else {
-                console.error("AuthService :: getCurrentuser :: error", error);
-            }
-        return null;
+  try {
+    return await this.account.get();
+  } catch (error) {
+    if (error.code === 401) {
+      console.warn('User is not logged in.');
+    } else {
+      console.error("AuthService :: getCurrentUser :: error", error);
     }
+    return null; // This should be inside the catch, but clearly aligned
+  }
 }
 
     async logout(){
